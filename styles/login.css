@@ -1,0 +1,86 @@
+/* Estilos para la página de login */
+.login-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 1rem;
+  }
+  
+  .login-tarjeta {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+  }
+  
+  .login-encabezado {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .login-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    color: var(--color-primario);
+  }
+  
+  .login-descripcion {
+    text-align: center;
+    color: #666;
+    margin-top: 0.5rem;
+  }
+  
+  .login-contenido {
+    padding: 1.5rem;
+  }
+  
+  .login-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .login-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .login-etiqueta {
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  .login-input {
+    padding: 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .login-input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  .login-pie {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--color-borde);
+    text-align: center;
+  }
+  
+  .login-enlace {
+    color: var(--color-primario);
+    text-decoration: none;
+  }
+  
+  .login-enlace:hover {
+    text-decoration: underline;
+  }
+  

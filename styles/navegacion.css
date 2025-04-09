@@ -1,0 +1,59 @@
+/* Estilos para la barra de navegación */
+.navegacion {
+    background-color: white;
+    border-bottom: 1px solid var(--color-borde);
+    padding: 0.75rem 0;
+  }
+  
+  .navegacion-contenedor {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navegacion-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .navegacion-icono {
+    color: var(--color-primario);
+    font-size: 1.5rem;
+  }
+  
+  .navegacion-titulo {
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+  
+  .navegacion-menu {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .navegacion-enlace {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+  
+  .navegacion-enlace:hover {
+    color: var(--color-primario);
+  }
+  
+  .navegacion-boton {
+    background: none;
+    border: none;
+    color: var(--color-texto);
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0.5rem;
+  }
+  
+  .navegacion-boton:hover {
+    color: var(--color-primario);
+  }
+  

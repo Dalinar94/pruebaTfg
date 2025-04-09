@@ -1,0 +1,142 @@
+/* Estilos para el dashboard */
+.dashboard-contenedor {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .dashboard-principal {
+    flex: 1;
+    padding: 1.5rem;
+  }
+  
+  .dashboard-titulo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--color-primario);
+  }
+  
+  .dashboard-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .dashboard-busqueda {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .dashboard-tabla-contenedor {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+  
+  .dashboard-tabla {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .dashboard-tabla th {
+    background-color: #f9f9f9;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .dashboard-tabla td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .dashboard-tabla tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .dashboard-tabla-caption {
+    caption-side: bottom;
+    padding: 0.75rem 1rem;
+    color: #666;
+    font-style: italic;
+    text-align: center;
+    border-top: 1px solid var(--color-borde);
+  }
+  
+  .dashboard-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-dialogo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .dashboard-dialogo-contenido {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+  }
+  
+  .dashboard-dialogo-encabezado {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .dashboard-dialogo-titulo {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .dashboard-dialogo-descripcion {
+    color: #666;
+    margin-top: 0.25rem;
+  }
+  
+  .dashboard-dialogo-cuerpo {
+    padding: 1.5rem;
+  }
+  
+  .dashboard-dialogo-pie {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--color-borde);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-formulario {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .dashboard-formulario-grupo {
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  .dashboard-formulario-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
