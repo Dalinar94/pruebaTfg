@@ -17,7 +17,7 @@ export default function BarraNavegacion({ onCerrarSesion }) {
           <a href="/clientes" className="navegacion-enlace">Clientes</a>
           <a href="/soporte" className="navegacion-enlace">Soporte</a>
         </div>
-        
+       
         <nav className="navegacion-menu">
           <button className="navegacion-boton" onClick={onCerrarSesion}>
             Cerrar Sesión

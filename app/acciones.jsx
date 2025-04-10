@@ -1,7 +1,7 @@
 "use server"
 
 // Simulación de base de datos en memoria
-// En una aplicación real, aquí se conectaría a SQL Server
+// En una aplicación real, aquí se conectaría a una base de datos
 const usuarios = [{ id: 1, nombre: "Usuario", apellido: "Predeterminado", usuario: "user", contrasena: "1234" }]
 
 let productos = [
