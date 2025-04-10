@@ -1,6 +1,6 @@
 /* Estilos para la barra de navegación */
 .navegacion {
-  background-color: white;
+  background-color: rgb(14, 134, 238);
   border-bottom: 1px solid var(--color-borde);
   padding: 0.75rem 0;
 }
@@ -32,7 +32,6 @@
   align-items: center;
   gap: 1.5rem;
 }
-
 .navegacion-enlace {
   color: var(--color-texto);
   text-decoration: none;
@@ -41,15 +40,17 @@
   padding: 0.5rem 0;
   position: relative;
 }
-
+/*Estilo para el enlace activo, que cambie de color*/
 .navegacion-enlace:hover {
   color: var(--color-primario);
 }
 
+/* Estilo para el enlace activo */
 .navegacion-enlace-activo {
   color: var(--color-primario);
 }
 
+/* Estilo para el subrayado del enlace activo */
 .navegacion-enlace-activo::after {
   content: "";
   position: absolute;
@@ -60,15 +61,18 @@
   background-color: var(--color-primario);
 }
 
+/*BOTON DE NAVEGACIÓN (ejemplo: El boton de Cerrar Sesión)*/
 .navegacion-boton {
   background: none;
-  border: none;
+  border: 1px solid var(--color-texto);
+  border-radius: 0.5rem;
   color: var(--color-texto);
   font-weight: 500;
   cursor: pointer;
   padding: 0.5rem;
 }
 
+/*Al pasar el raton por encima que cambie de color*/
 .navegacion-boton:hover {
   color: var(--color-primario);
 }
