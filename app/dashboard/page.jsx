@@ -47,8 +47,28 @@ export default function PaginaDashboard() {
       <BarraNavegacion onCerrarSesion={cerrarSesion} />
 
       <main className="contenedor dashboard-principal">
-        <h1 className="dashboard-titulo">Control de Stock</h1>
+        <h1 className="dashboard-titulo">Panel de Control</h1>
 
+        <div className="dashboard-estadisticas">
+          <div className="dashboard-estadistica-tarjeta">
+            <h3>Productos</h3>
+            <p className="dashboard-estadistica-valor">5</p>
+          </div>
+          <div className="dashboard-estadistica-tarjeta">
+            <h3>Ventas Hoy</h3>
+            <p className="dashboard-estadistica-valor">12</p>
+          </div>
+          <div className="dashboard-estadistica-tarjeta">
+            <h3>Ingresos Hoy</h3>
+            <p className="dashboard-estadistica-valor">345,50 €</p>
+          </div>
+          <div className="dashboard-estadistica-tarjeta">
+            <h3>Clientes</h3>
+            <p className="dashboard-estadistica-valor">48</p>
+          </div>
+        </div>
+
+        <h2 className="dashboard-subtitulo">Productos</h2>
         <div className="dashboard-controles">
           <div className="dashboard-busqueda">
             <input
@@ -73,3 +93,4 @@ export default function PaginaDashboard() {
     </div>
   )
 }
+
