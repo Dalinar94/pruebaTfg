@@ -15,11 +15,11 @@ let productos = [
 const proveedores = [
   {
     id: 1,
-    nombre: "Farmacéutica Nacional",
-    contacto: "María López",
-    telefono: "912345678",
-    email: "contacto@farmanacional.com",
-    direccion: "Calle Principal 123, Madrid",
+    nombre: "Farmacéutica Quart de Poblet",
+    contacto: "Francisco Davó",
+    telefono: "687591208",
+    email: "frandavowork@farma.com",
+    direccion: "Calle Principal 123, Valencia",
     productos: ["Paracetamol", "Ibuprofeno", "Omeprazol"],
   },
   {
