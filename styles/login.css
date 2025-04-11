@@ -16,11 +16,19 @@
     width: 100%;
     max-width: 400px;
     overflow: hidden;
+    
   }
-  
+
   .login-encabezado {
     padding: 1.5rem;
     border-bottom: 1px solid var(--color-borde);
+    
+  }
+  .login-logo-contenedor{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
   }
   
   .login-titulo {

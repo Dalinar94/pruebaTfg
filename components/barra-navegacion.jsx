@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { usePathname } from "next/navigation"
 import "../styles/navegacion.css"
 
@@ -16,8 +17,7 @@ export default function BarraNavegacion({ onCerrarSesion }) {
     <header className="navegacion">
       <div className="contenedor navegacion-contenedor">
         <div className="navegacion-logo">
-          <span className="navegacion-icono">💊</span>
-          <span className="navegacion-titulo">FarmaStock FDC</span>
+          <span className="navegacion-titulo">FarmaStock</span>
         </div>
 
         <div className="navegacion-menu">

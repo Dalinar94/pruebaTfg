@@ -45,13 +45,15 @@
   }
   
   .boton-primario {
-    background-color: var(--color-secundario);
+    background-color: rgb(14, 134, 238);
     color: white;
     border: none;
   }
   
   .boton-primario:hover {
-    background-color: var(--color-secundario);
+    background-color: var(--color-texto);
+    transition: 0.5s;
+    
   }
   
   .boton-secundario {

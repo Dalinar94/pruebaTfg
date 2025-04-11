@@ -5,6 +5,8 @@
     justify-content: center;
     min-height: 100vh;
     padding: 1rem;
+    background-image: url('../img/m1.jpg');
+    background-size: cover;
   }
   
   .registro-tarjeta {

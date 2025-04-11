@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { verificarCredenciales } from "@/app/acciones"
 import "../styles/login.css"
 
@@ -33,7 +34,7 @@ export default function FormularioLogin() {
   return (
     <div className="login-tarjeta">
       <div className="login-encabezado">
-        <h1 className="login-titulo">FarmaStock FDC</h1>
+        <h1 className="login-titulo">FarmaStock</h1>
         <p className="login-descripcion">Ingrese sus credenciales para acceder al sistema</p>
       </div>
       <div className="login-contenido">
