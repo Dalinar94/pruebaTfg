@@ -1,17 +1,56 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import BarraNavegacion from "@/components/barra-navegacion"
 import TablaProductos from "@/components/tabla-productos"
 import FormularioProducto from "@/components/formulario-producto"
+import { obtenerProductos } from "@/app/acciones"
 import "../../styles/dashboard.css"
 
 export default function PaginaDashboard() {
   const [busqueda, setBusqueda] = useState("")
   const [productoSeleccionado, setProductoSeleccionado] = useState(null)
   const [mostrarFormulario, setMostrarFormulario] = useState(false)
+  const [productos, setProductos] = useState([])
+  const [estadisticas, setEstadisticas] = useState({
+    totalProductos: 0,
+    valorTotal: 0,
+    stockBajo: 0,
+    ventasHoy: 12, // Valor simulado
+  })
+  const [cargando, setCargando] = useState(true)
   const router = useRouter()
+
+  // Efecto para cargar productos al iniciar
+  useEffect(() => {
+    cargarProductos()
+  }, [])
+
+  // Función para cargar productos y calcular estadísticas
+  const cargarProductos = async () => {
+    try {
+      setCargando(true)
+      const datos = await obtenerProductos()
+      setProductos(datos)
+
+      // Calcular estadísticas
+      const total = datos.length
+      const valor = datos.reduce((sum, producto) => sum + producto.precio * producto.cantidad, 0)
+      const bajo = datos.filter((p) => p.cantidad < 30).length
+
+      setEstadisticas({
+        totalProductos: total,
+        valorTotal: valor,
+        stockBajo: bajo,
+        ventasHoy: 15, // Valor simulado,aqui puedo cambiar el valor manualmente
+      })
+    } catch (error) {
+      console.error("Error al cargar productos:", error)
+    } finally {
+      setCargando(false)
+    }
+  }
 
   // Abrir formulario para nuevo producto
   const abrirFormularioNuevo = () => {
@@ -33,6 +72,7 @@ export default function PaginaDashboard() {
 
   // Guardar producto y cerrar formulario
   const guardarProducto = () => {
+    cargarProductos() // Recargar productos para actualizar la tabla
     setMostrarFormulario(false)
     setProductoSeleccionado(null)
   }
@@ -52,19 +92,22 @@ export default function PaginaDashboard() {
         <div className="dashboard-estadisticas">
           <div className="dashboard-estadistica-tarjeta">
             <h3>Productos</h3>
-            <p className="dashboard-estadistica-valor">5</p>
+            <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.totalProductos}</p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
             <h3>Ventas Hoy</h3>
-            <p className="dashboard-estadistica-valor">12</p>
+            <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.ventasHoy}</p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Ingresos Hoy</h3>
-            <p className="dashboard-estadistica-valor">345,50 €</p>
+            <h3>Valor del Inventario</h3>
+            <p className="dashboard-estadistica-valor">
+              {cargando ? "..." : `${estadisticas.valorTotal.toFixed(2)} €`}
+            </p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Clientes</h3>
-            <p className="dashboard-estadistica-valor">48</p>
+            <h3>Stock Bajo</h3>
+            <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.stockBajo}</p>
+            <p className="dashboard-estadistica-detalle">Productos con menos de 30 unidades</p>
           </div>
         </div>
 
@@ -84,7 +127,13 @@ export default function PaginaDashboard() {
           </button>
         </div>
 
-        <TablaProductos onEditar={abrirFormularioEditar} busqueda={busqueda} />
+        <TablaProductos
+          productos={productos}
+          onEditar={abrirFormularioEditar}
+          busqueda={busqueda}
+          onProductosActualizados={cargarProductos}
+          cargando={cargando}
+        />
       </main>
 
       {mostrarFormulario && (
@@ -93,4 +142,3 @@ export default function PaginaDashboard() {
     </div>
   )
 }
-

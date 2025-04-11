@@ -33,7 +33,7 @@ export default function FormularioLogin() {
   return (
     <div className="login-tarjeta">
       <div className="login-encabezado">
-        <h1 className="login-titulo">Farmacia Local</h1>
+        <h1 className="login-titulo">FarmaStock FDC</h1>
         <p className="login-descripcion">Ingrese sus credenciales para acceder al sistema</p>
       </div>
       <div className="login-contenido">

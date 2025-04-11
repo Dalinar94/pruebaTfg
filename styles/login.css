@@ -5,6 +5,8 @@
     justify-content: center;
     min-height: 100vh;
     padding: 1rem;
+    background-image: url('../img/m1.jpg');
+    background-size: cover;
   }
   
   .login-tarjeta {
@@ -22,11 +24,11 @@
   }
   
   .login-titulo {
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     font-weight: bold;
     text-align: center;
     margin: 0;
-    color: var(--color-primario);
+    color: var(--color-texto);
   }
   
   .login-descripcion {
@@ -77,7 +79,7 @@
   }
   
   .login-enlace {
-    color: var(--color-primario);
+    color: var(--color-secundario);
     text-decoration: none;
   }
   

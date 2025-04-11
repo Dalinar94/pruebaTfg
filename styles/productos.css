@@ -1,0 +1,233 @@
+/* Estilos para la página de productos */
+.productos-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .productos-filtros {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    flex: 1;
+  }
+  
+  .productos-select {
+    padding: 0.5rem;
+    border: 1px solid var(--color-borde);
+    border-radius: 0.25rem;
+    background-color: white;
+    min-width: 200px;
+  }
+  
+  .productos-busqueda {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .productos-acciones {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .productos-vista-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-borde);
+    background-color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .productos-vista-btn:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .productos-resultados {
+    margin-bottom: 1rem;
+    color: #666;
+    font-size: 0.875rem;
+  }
+  
+  /* Vista de lista */
+  .productos-lista-contenedor {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  
+  .productos-tabla {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .productos-tabla th {
+    background-color: #f9f9f9;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .productos-tabla td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .productos-tabla tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .productos-precio {
+    text-align: right;
+    font-weight: 500;
+  }
+  
+  .productos-sin-resultados {
+    padding: 2rem;
+    text-align: center;
+    color: #666;
+  }
+  
+  /* Vista de tarjetas */
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .producto-tarjeta {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .producto-tarjeta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .producto-tarjeta-categoria {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  
+  .producto-tarjeta-nombre {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-texto);
+  }
+  
+  .producto-tarjeta-descripcion {
+    color: #666;
+    margin: 0 0 1rem 0;
+    flex-grow: 1;
+  }
+  
+  .producto-tarjeta-detalles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .producto-tarjeta-precio {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-texto);
+  }
+  
+  .producto-tarjeta-stock {
+    font-size: 0.875rem;
+    color: #666;
+  }
+  
+  .producto-tarjeta-stock.stock-bajo {
+    color: var(--color-error);
+    font-weight: 500;
+  }
+  
+  .producto-tarjeta-btn {
+    align-self: flex-end;
+  }
+  
+  .productos-sin-resultados-grid {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: #666;
+  }
+  
+  .productos-cargando {
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Botón pequeño */
+  .boton-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .productos-controles {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .productos-filtros {
+      width: 100%;
+    }
+  
+    .productos-busqueda {
+      max-width: none;
+      width: 100%;
+    }
+  
+    .productos-acciones {
+      width: 100%;
+      justify-content: space-between;
+    }
+  
+    .productos-grid {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .productos-grid {
+      grid-template-columns: 1fr;
+    }
+  
+    .productos-tabla {
+      font-size: 0.875rem;
+    }
+  
+    .productos-tabla th,
+    .productos-tabla td {
+      padding: 0.5rem;
+    }
+  }
+  

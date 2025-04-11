@@ -17,7 +17,7 @@ export default function BarraNavegacion({ onCerrarSesion }) {
       <div className="contenedor navegacion-contenedor">
         <div className="navegacion-logo">
           <span className="navegacion-icono">💊</span>
-          <span className="navegacion-titulo">Farmacia Local</span>
+          <span className="navegacion-titulo">FarmaStock FDC</span>
         </div>
 
         <div className="navegacion-menu">

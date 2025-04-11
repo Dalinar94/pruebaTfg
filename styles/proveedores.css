@@ -1,0 +1,144 @@
+/* Estilos para la página de proveedores */
+.proveedores-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .proveedores-busqueda {
+    flex: 1;
+    max-width: 300px;
+  }
+  
+  .proveedores-formulario-contenedor {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1.5rem;
+  }
+  
+  .proveedores-formulario-contenedor h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: var(--color-texto);
+    font-size: 1.25rem;
+  }
+  
+  .proveedores-formulario {
+    display: grid;
+    gap: 1rem;
+  }
+  
+  .proveedores-formulario-grupo {
+    display: grid;
+    gap: 0.5rem;
+  }
+  
+  .proveedores-formulario-grupo label {
+    font-weight: 500;
+    font-size: 0.875rem;
+  }
+  
+  .proveedores-formulario-fila {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .proveedores-formulario-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .proveedores-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .proveedor-tarjeta {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .proveedor-tarjeta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .proveedor-tarjeta-encabezado {
+    padding: 1rem 1.5rem;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .proveedor-tarjeta-nombre {
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--color-texto);
+  }
+  
+  .proveedor-tarjeta-contenido {
+    padding: 1.5rem;
+  }
+  
+  .proveedor-tarjeta-info p {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .proveedor-tarjeta-productos {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-borde);
+  }
+  
+  .proveedor-tarjeta-productos h4 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .proveedor-tarjeta-productos ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+  
+  .proveedor-tarjeta-productos li {
+    margin-bottom: 0.25rem;
+  }
+  
+  .proveedores-cargando,
+  .proveedores-sin-resultados {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    text-align: center;
+    background-color: white;
+    border-radius: 0.5rem;
+    color: #666;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .proveedores-controles {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .proveedores-busqueda {
+      max-width: none;
+      width: 100%;
+    }
+  
+    .proveedores-formulario-fila {
+      grid-template-columns: 1fr;
+    }
+  }
+  

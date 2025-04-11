@@ -1,0 +1,206 @@
+/* Estilos para la página de stock */
+.stock-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stock-estadistica-tarjeta {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stock-estadistica-tarjeta h3 {
+    font-size: 0.875rem;
+    color: #666;
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .stock-estadistica-valor {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--color-texto);
+  }
+  
+  .stock-bajo-tarjeta .stock-estadistica-valor {
+    color: #ff9800;
+  }
+  
+  .stock-agotado-tarjeta .stock-estadistica-valor {
+    color: var(--color-error);
+  }
+  
+  .stock-controles {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .stock-filtros {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .stock-filtro-btn {
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--color-texto);
+    background-color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  
+  .stock-filtro-btn.activo {
+    background-color: var(--color-secundario);
+    color: white;
+    border-color: var(--color-primario);
+  }
+  
+  .stock-busqueda {
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .stock-tabla-contenedor {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stock-tabla {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .stock-tabla th {
+    background-color: #f9f9f9;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    color: #666;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .stock-tabla td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--color-borde);
+  }
+  
+  .stock-tabla tr:last-child td {
+    border-bottom: none;
+  }
+  
+  .stock-producto-nombre {
+    font-weight: 500;
+  }
+  
+  .stock-precio,
+  .stock-cantidad,
+  .stock-valor {
+    text-align: right;
+  }
+  
+  .stock-estado {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+  
+  .stock-normal {
+    background-color: #e8f5e9;
+    color: #388e3c;
+  }
+  
+  .stock-bajo {
+    background-color: #fff3e0;
+    color: #e65100;
+  }
+  
+  .stock-agotado {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+  
+  .stock-cargando,
+  .stock-sin-resultados {
+    padding: 2rem;
+    text-align: center;
+    color: #666;
+  }
+  
+  .stock-recomendaciones {
+    background-color: #e8f5e9;
+    border-radius: 0.5rem;
+    padding: 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .stock-recomendaciones h3 {
+    color: var(--color-primario);
+    margin: 0 0 0.5rem 0;
+    font-size: 1rem;
+  }
+  
+  .stock-recomendaciones p {
+    margin: 0 0 0.5rem 0;
+  }
+  
+  .stock-recomendaciones ul {
+    margin: 0;
+    padding-left: 1.5rem;
+  }
+  
+  .stock-recomendaciones li {
+    margin-bottom: 0.25rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .stock-estadisticas {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .stock-controles {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .stock-busqueda {
+      max-width: none;
+      width: 100%;
+    }
+  
+    .stock-filtros {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 0.5rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .stock-estadisticas {
+      grid-template-columns: 1fr;
+    }
+  
+    .stock-tabla {
+      font-size: 0.875rem;
+    }
+  
+    .stock-tabla th,
+    .stock-tabla td {
+      padding: 0.5rem;
+    }
+  }
+  

@@ -1,26 +1,16 @@
 "use client"
 
-import { useState, useEffect } from "react"
-import { obtenerProductos, eliminarProducto } from "@/app/acciones"
-import "../styles/dashboard.css"
+import { useState } from "react"
+import { eliminarProducto } from "@/app/acciones"
 
-export default function TablaProductos({ onEditar, busqueda = "" }) {
-  const [productos, setProductos] = useState([])
-
-  // Cargar productos al iniciar
-  useEffect(() => {
-    cargarProductos()
-  }, [])
-
-  // Función para cargar productos
-  const cargarProductos = async () => {
-    try {
-      const datos = await obtenerProductos()
-      setProductos(datos)
-    } catch (error) {
-      console.error("Error al cargar productos:", error)
-    }
-  }
+export default function TablaProductos({
+  productos = [],
+  onEditar,
+  busqueda = "",
+  onProductosActualizados,
+  cargando = false,
+}) {
+  const [eliminando, setEliminando] = useState(false)
 
   // Filtrar productos según la búsqueda
   const productosFiltrados = productos.filter(
@@ -33,12 +23,28 @@ export default function TablaProductos({ onEditar, busqueda = "" }) {
   const manejarEliminarProducto = async (id) => {
     if (confirm("¿Está seguro que desea eliminar este producto?")) {
       try {
+        setEliminando(true)
         await eliminarProducto(id)
-        cargarProductos()
+        if (onProductosActualizados) {
+          onProductosActualizados()
+        }
       } catch (error) {
         console.error("Error al eliminar producto:", error)
+        alert("Error al eliminar el producto")
+      } finally {
+        setEliminando(false)
       }
     }
+  }
+
+  if (cargando) {
+    return (
+      <div className="dashboard-tabla-contenedor">
+        <div className="dashboard-cargando">
+          <p>Cargando productos...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
@@ -60,14 +66,20 @@ export default function TablaProductos({ onEditar, busqueda = "" }) {
               <tr key={producto.id}>
                 <td className="font-medium">{producto.nombre}</td>
                 <td>{producto.descripcion}</td>
-                <td style={{ textAlign: "right" }}>{producto.cantidad}</td>
+                <td style={{ textAlign: "right" }} className={producto.cantidad < 30 ? "stock-bajo" : ""}>
+                  {producto.cantidad}
+                </td>
                 <td style={{ textAlign: "right" }}>{producto.precio.toFixed(2)} €</td>
                 <td>
                   <div className="dashboard-acciones">
-                    <button className="boton boton-secundario" onClick={() => onEditar(producto)}>
+                    <button className="boton boton-secundario" onClick={() => onEditar(producto)} disabled={eliminando}>
                       Editar
                     </button>
-                    <button className="boton boton-peligro" onClick={() => manejarEliminarProducto(producto.id)}>
+                    <button
+                      className="boton boton-peligro"
+                      onClick={() => manejarEliminarProducto(producto.id)}
+                      disabled={eliminando}
+                    >
                       Eliminar
                     </button>
                   </div>
@@ -77,7 +89,9 @@ export default function TablaProductos({ onEditar, busqueda = "" }) {
           ) : (
             <tr>
               <td colSpan={5} style={{ textAlign: "center", padding: "1rem" }}>
-                No se encontraron productos
+                {busqueda
+                  ? "No se encontraron productos que coincidan con la búsqueda"
+                  : "No hay productos registrados"}
               </td>
             </tr>
           )}

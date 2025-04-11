@@ -1,0 +1,207 @@
+/* Estilos para la página de clientes */
+.clientes-controles {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.clientes-busqueda {
+  flex: 1;
+  max-width: 300px;
+}
+
+.clientes-formulario-contenedor {
+  background-color: white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
+}
+
+.clientes-formulario-contenedor h3 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: var(--color-texto);
+  font-size: 1.25rem;
+}
+
+.clientes-formulario {
+  display: grid;
+  gap: 1rem;
+}
+
+.clientes-formulario-grupo {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.clientes-formulario-grupo label {
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.clientes-formulario-fila {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.clientes-formulario-acciones {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.clientes-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cliente-tarjeta {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.cliente-tarjeta-encabezado {
+  padding: 1rem 1.5rem;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid var(--color-borde);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cliente-tarjeta-nombre {
+  margin: 0;
+  font-size: 1.25rem;
+  color: var(--color-texto);
+  flex: 1;
+}
+
+.cliente-tarjeta-fecha {
+  font-size: 0.875rem;
+  color: #666;
+  margin-right: 1rem;
+}
+
+.cliente-tarjeta-toggle {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  color: #666;
+}
+
+.cliente-tarjeta-contenido {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.cliente-tarjeta-contenido.expandido {
+  max-height: 1000px;
+  padding: 1.5rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.cliente-tarjeta-info p {
+  margin: 0 0 0.5rem 0;
+}
+
+.cliente-tarjeta-compras {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-borde);
+}
+
+.cliente-tarjeta-compras h4 {
+  margin: 0 0 0.5rem 0;
+  font-size: 1rem;
+}
+
+.cliente-compras-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.cliente-compras-tabla th {
+  background-color: #f5f5f5;
+  text-align: left;
+  padding: 0.5rem;
+  font-weight: 600;
+  color: #666;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cliente-compras-tabla td {
+  padding: 0.5rem;
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.cliente-compras-tabla tfoot td {
+  border-top: 2px solid var(--color-borde);
+  border-bottom: none;
+  padding-top: 0.75rem;
+  font-weight: 600;
+}
+
+.cliente-compras-total-label {
+  text-align: right;
+}
+
+.cliente-compras-total-valor {
+  color: var(--color-secundario);
+}
+
+.cliente-sin-compras {
+  color: #666;
+  font-style: italic;
+}
+
+.clientes-cargando,
+.clientes-sin-resultados {
+  padding: 2rem;
+  text-align: center;
+  background-color: white;
+  border-radius: 0.5rem;
+  color: #666;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clientes-controles {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .clientes-busqueda {
+    max-width: none;
+    width: 100%;
+  }
+
+  .clientes-formulario-fila {
+    grid-template-columns: 1fr;
+  }
+
+  .cliente-tarjeta-encabezado {
+    flex-wrap: wrap;
+  }
+
+  .cliente-tarjeta-nombre {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .cliente-tarjeta-fecha {
+    margin-right: auto;
+  }
+}
