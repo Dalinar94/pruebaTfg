@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { agregarProducto, actualizarProducto } from "@/app/acciones"
 import "../styles/dashboard.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function FormularioProducto({ producto = null, onGuardar, onCancelar }) {
   const [formulario, setFormulario] = useState({
@@ -65,14 +66,14 @@ export default function FormularioProducto({ producto = null, onGuardar, onCance
       <div className="dashboard-dialogo-contenido">
         <div className="dashboard-dialogo-encabezado">
           <h2 className="dashboard-dialogo-titulo">{modoEdicion ? "Editar Producto" : "Agregar Nuevo Producto"}</h2>
-          <p className="dashboard-dialogo-descripcion">Complete los detalles del producto y guarde los cambios.</p>
+          <p className="dashboard-dialogo-descripcion">{TEXTOS.MSG_COMPLETAR_PRODUCTOS}</p>
         </div>
 
         <div className="dashboard-dialogo-cuerpo">
           <form onSubmit={manejarGuardar} className="dashboard-formulario">
             <div className="dashboard-formulario-grupo">
               <label htmlFor="nombre" className="login-etiqueta">
-                Nombre
+                {TEXTOS.LABEL_NOMBRE}
               </label>
               <input
                 id="nombre"
@@ -87,7 +88,7 @@ export default function FormularioProducto({ producto = null, onGuardar, onCance
 
             <div className="dashboard-formulario-grupo">
               <label htmlFor="descripcion" className="login-etiqueta">
-                Descripción
+                {TEXTOS.LABEL_DESCRIPCION}
               </label>
               <input
                 id="descripcion"
@@ -102,7 +103,7 @@ export default function FormularioProducto({ producto = null, onGuardar, onCance
             <div className="dashboard-formulario-fila">
               <div className="dashboard-formulario-grupo">
                 <label htmlFor="cantidad" className="login-etiqueta">
-                  Cantidad
+                  {TEXTOS.LABEL_CANTIDAD}
                 </label>
                 <input
                   id="cantidad"
@@ -118,7 +119,7 @@ export default function FormularioProducto({ producto = null, onGuardar, onCance
 
               <div className="dashboard-formulario-grupo">
                 <label htmlFor="precio" className="login-etiqueta">
-                  Precio (€)
+                  {TEXTOS.LABEL_CANTIDAD} (€)
                 </label>
                 <input
                   id="precio"
@@ -136,7 +137,7 @@ export default function FormularioProducto({ producto = null, onGuardar, onCance
 
             <div className="dashboard-dialogo-pie">
               <button type="button" className="boton boton-secundario" onClick={onCancelar}>
-                Cancelar
+                {TEXTOS.BTN_CANCELAR}
               </button>
               <button type="submit" className="boton boton-primario">
                 {modoEdicion ? "Actualizar" : "Agregar"}

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { eliminarProducto } from "@/app/acciones"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function TablaProductos({
   productos = [],
@@ -41,7 +42,7 @@ export default function TablaProductos({
     return (
       <div className="dashboard-tabla-contenedor">
         <div className="dashboard-cargando">
-          <p>Cargando productos...</p>
+          <p>{TEXTOS.PRO_CARGANDO_PRODUCTOS}</p>
         </div>
       </div>
     )
@@ -50,14 +51,14 @@ export default function TablaProductos({
   return (
     <div className="dashboard-tabla-contenedor">
       <table className="dashboard-tabla">
-        <caption className="dashboard-tabla-caption">Inventario actual de productos</caption>
+        <caption className="dashboard-tabla-caption">{TEXTOS.PRO_INVENTARIO_PRODUCTOS}</caption>
         <thead>
           <tr>
-            <th>Nombre</th>
-            <th>Descripción</th>
-            <th style={{ textAlign: "right" }}>Cantidad</th>
-            <th style={{ textAlign: "right" }}>Precio (€)</th>
-            <th style={{ textAlign: "right" }}>Acciones</th>
+            <th>{TEXTOS.LABEL_NOMBRE}</th>
+            <th>{TEXTOS.LABEL_DESCRIPCION}</th>
+            <th style={{ textAlign: "right" }}>{TEXTOS.LABEL_CANTIDAD}</th>
+            <th style={{ textAlign: "right" }}>{TEXTOS.LABEL_PRECIO} (€)</th>
+            <th style={{ textAlign: "right" }}>{TEXTOS.LABEL_ACCION}</th>
           </tr>
         </thead>
         <tbody>
@@ -73,14 +74,14 @@ export default function TablaProductos({
                 <td>
                   <div className="dashboard-acciones">
                     <button className="boton boton-secundario" onClick={() => onEditar(producto)} disabled={eliminando}>
-                      Editar
+                      {TEXTOS.BTN_EDITAR}
                     </button>
                     <button
                       className="boton boton-peligro"
                       onClick={() => manejarEliminarProducto(producto.id)}
                       disabled={eliminando}
                     >
-                      Eliminar
+                      {TEXTOS.BTN_ELIMINAR}
                     </button>
                   </div>
                 </td>

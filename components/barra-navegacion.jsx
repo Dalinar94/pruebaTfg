@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import "../styles/navegacion.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function BarraNavegacion({ onCerrarSesion }) {
   const pathname = usePathname()
@@ -17,32 +18,33 @@ export default function BarraNavegacion({ onCerrarSesion }) {
     <header className="navegacion">
       <div className="contenedor navegacion-contenedor">
         <div className="navegacion-logo">
-          <span className="navegacion-titulo">FarmaStock</span>
+          <span className="navegacion-titulo">{TEXTOS.NOMBRE_EMPRESA}</span>
         </div>
 
         <div className="navegacion-menu">
           <Link href="/dashboard" className={`navegacion-enlace ${esEnlaceActivo("/dashboard")}`}>
-            Dashboard
+            {TEXTOS.TITULO_DASHBOARD}
           </Link>
           <Link href="/stock" className={`navegacion-enlace ${esEnlaceActivo("/stock")}`}>
-            Stock
+          {TEXTOS.TITULO_STOCK}
+
           </Link>
           <Link href="/productos" className={`navegacion-enlace ${esEnlaceActivo("/productos")}`}>
-            Productos
+            {TEXTOS.TITULO_CATALOGO_PRODUCTOS}
           </Link>
           <Link href="/proveedores" className={`navegacion-enlace ${esEnlaceActivo("/proveedores")}`}>
-            Proveedores
+            {TEXTOS.TITULO_PROVEEDORES}
           </Link>
           <Link href="/clientes" className={`navegacion-enlace ${esEnlaceActivo("/clientes")}`}>
-            Clientes
+            {TEXTOS.TITULO_CLIENTES}
           </Link>
           <Link href="/soporte" className={`navegacion-enlace ${esEnlaceActivo("/soporte")}`}>
-            Soporte
+            {TEXTOS.TITULO_SOPORTE}
           </Link>
         </div>
 
         <button className="navegacion-boton" onClick={onCerrarSesion}>
-          Cerrar Sesión
+          {TEXTOS.BTN_CERRAR_SESION}
         </button>
       </div>
     </header>

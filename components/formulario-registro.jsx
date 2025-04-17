@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { registrarUsuario } from "@/app/acciones"
 import "../styles/registro.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function FormularioRegistro() {
   const [nombre, setNombre] = useState("")
@@ -40,17 +41,17 @@ export default function FormularioRegistro() {
   return (
     <div className="registro-tarjeta">
       <div className="registro-encabezado">
-        <h1 className="registro-titulo">Registro de Trabajador</h1>
-        <p className="registro-descripcion">Complete el formulario para registrarse en el sistema</p>
+        <h1 className="registro-titulo">{TEXTOS.TITULO_REGISTRO}</h1>
+        <p className="registro-descripcion">{TEXTOS.MSG_REGISTRO}</p>
       </div>
       <div className="registro-contenido">
         {exito ? (
-          <div className="registro-exito">¡Registro exitoso! Redirigiendo al inicio de sesión...</div>
+          <div className="registro-exito">{TEXTOS.MSG_REGISTRO_EXITO}</div>
         ) : (
           <form onSubmit={manejarRegistro} className="registro-formulario">
             <div className="registro-grupo">
               <label htmlFor="nombre" className="registro-etiqueta">
-                Nombre
+                {TEXTOS.LABEL_NOMBRE}
               </label>
               <input
                 id="nombre"
@@ -64,7 +65,7 @@ export default function FormularioRegistro() {
             </div>
             <div className="registro-grupo">
               <label htmlFor="apellido" className="registro-etiqueta">
-                Apellido
+              {TEXTOS.LABEL_APELLIDO}
               </label>
               <input
                 id="apellido"
@@ -78,7 +79,7 @@ export default function FormularioRegistro() {
             </div>
             <div className="registro-grupo">
               <label htmlFor="usuario" className="registro-etiqueta">
-                Usuario
+                {TEXTOS.LABEL_USUARIO}
               </label>
               <input
                 id="usuario"
@@ -92,7 +93,7 @@ export default function FormularioRegistro() {
             </div>
             <div className="registro-grupo">
               <label htmlFor="contrasena" className="registro-etiqueta">
-                Contraseña
+                {TEXTOS.LABEL_CONTRASENA}
               </label>
               <input
                 id="contrasena"
@@ -106,16 +107,16 @@ export default function FormularioRegistro() {
             </div>
             {error && <p className="texto-error">{error}</p>}
             <button type="submit" className="boton boton-primario">
-              Registrarse
+              {TEXTOS.BTN_REGISTRARSE}
             </button>
           </form>
         )}
       </div>
       <div className="registro-pie">
         <p>
-          ¿Ya tienes una cuenta?{" "}
+          {TEXTOS.PREGUNTA_NUEVA_CUENTA}{" "}
           <Link href="/" className="registro-enlace">
-            Iniciar Sesión
+            {TEXTOS.BTN_INICIAR_SESION}
           </Link>
         </p>
       </div>

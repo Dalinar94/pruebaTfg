@@ -6,6 +6,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { verificarCredenciales } from "@/app/acciones"
 import "../styles/login.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function FormularioLogin() {
   const [usuario, setUsuario] = useState("")
@@ -30,18 +31,23 @@ export default function FormularioLogin() {
       setError("Error al iniciar sesión")
     }
   }
-
-  return (
+ /*EJEMPLO EXPLICACION PROFESORADO: TEXTOS.NOMBRE_EMPRESA 
+  *Sirve para llamar a una variable TEXTOS que esta en la carpeta lib en la clase 
+   de js constantes.js, donde ahi pongo "constantes que son variables fijas", cuyo
+   objetivo es evitar redundancias en los textos, que en mi app se van a repetir mas 
+   a menudo.
+  */
+return (
     <div className="login-tarjeta">
       <div className="login-encabezado">
-        <h1 className="login-titulo">FarmaStock</h1>
-        <p className="login-descripcion">Ingrese sus credenciales para acceder al sistema</p>
+        <h1 className="login-titulo">{TEXTOS.NOMBRE_EMPRESA}</h1>
+        <p className="login-descripcion">{TEXTOS.MSG_LOGIN}</p>
       </div>
       <div className="login-contenido">
         <form onSubmit={manejarInicioSesion} className="login-formulario">
           <div className="login-grupo">
             <label htmlFor="usuario" className="login-etiqueta">
-              Usuario
+              {TEXTOS.LABEL_USUARIO}
             </label>
             <input
               id="usuario"
@@ -55,7 +61,7 @@ export default function FormularioLogin() {
           </div>
           <div className="login-grupo">
             <label htmlFor="contrasena" className="login-etiqueta">
-              Contraseña
+              {TEXTOS.LABEL_CONTRASENA}
             </label>
             <input
               id="contrasena"
@@ -69,15 +75,15 @@ export default function FormularioLogin() {
           </div>
           {error && <p className="texto-error">{error}</p>}
           <button type="submit" className="boton boton-primario">
-            Iniciar Sesión
+            {TEXTOS.BTN_INICIAR_SESION}
           </button>
         </form>
       </div>
       <div className="login-pie">
         <p>
-          ¿No tienes una cuenta?{" "}
+          {TEXTOS.PREGUNTA_NUEVA_CUENTA}{" "}
           <Link href="/registro" className="login-enlace">
-            Registrarse
+            {TEXTOS.BTN_REGISTRARSE}
           </Link>
         </p>
       </div>

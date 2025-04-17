@@ -7,6 +7,7 @@ import TablaProductos from "@/components/tabla-productos"
 import FormularioProducto from "@/components/formulario-producto"
 import { obtenerProductos } from "@/app/acciones"
 import "../../styles/dashboard.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function PaginaDashboard() {
   const [busqueda, setBusqueda] = useState("")
@@ -87,31 +88,31 @@ export default function PaginaDashboard() {
       <BarraNavegacion onCerrarSesion={cerrarSesion} />
 
       <main className="contenedor dashboard-principal">
-        <h1 className="dashboard-titulo">Panel de Control</h1>
+        <h1 className="dashboard-titulo">{TEXTOS.TITULO_DASHBOARD}</h1>
 
         <div className="dashboard-estadisticas">
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Productos</h3>
+            <h3>{TEXTOS.TITULO_PRODUCTOS}</h3>
             <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.totalProductos}</p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Ventas Hoy</h3>
+            <h3>{TEXTOS.TITULO_VENTAS_HOY}</h3>
             <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.ventasHoy}</p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Valor del Inventario</h3>
+            <h3>{TEXTOS.TITULO_VALOR_INVENTARIO}</h3>
             <p className="dashboard-estadistica-valor">
               {cargando ? "..." : `${estadisticas.valorTotal.toFixed(2)} €`}
             </p>
           </div>
           <div className="dashboard-estadistica-tarjeta">
-            <h3>Stock Bajo</h3>
+            <h3>{TEXTOS.TITULO_STOCK_BAJO}</h3>
             <p className="dashboard-estadistica-valor">{cargando ? "..." : estadisticas.stockBajo}</p>
-            <p className="dashboard-estadistica-detalle">Productos con menos de 30 unidades</p>
+            <p className="dashboard-estadistica-detalle">{TEXTOS.PRO_MENOS_30UNIDADES}</p>
           </div>
         </div>
 
-        <h2 className="dashboard-subtitulo">Productos</h2>
+        <h2 className="dashboard-subtitulo">{TEXTOS.TITULO_PRODUCTOS}</h2>
         <div className="dashboard-controles">
           <div className="dashboard-busqueda">
             <input
@@ -123,7 +124,7 @@ export default function PaginaDashboard() {
             />
           </div>
           <button onClick={abrirFormularioNuevo} className="boton boton-primario">
-            Agregar Producto
+            {TEXTOS.BTN_AGREGAR_PRODUCTO}
           </button>
         </div>
 

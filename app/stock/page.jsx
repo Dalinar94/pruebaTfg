@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import PaginaBase from "@/components/pagina-base"
 import { obtenerProductos } from "@/app/acciones"
 import "../../styles/stock.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function PaginaStock() {
   const [productos, setProductos] = useState([])
@@ -84,19 +85,19 @@ export default function PaginaStock() {
       {/* Estadísticas de Stock */}
       <div className="stock-estadisticas">
         <div className="stock-estadistica-tarjeta">
-          <h3>Total Productos</h3>
+          <h3>{TEXTOS.STOCK_TOTAL_PRODUCTOS}</h3>
           <p className="stock-estadistica-valor">{cargando ? "..." : estadisticas.total}</p>
         </div>
         <div className="stock-estadistica-tarjeta stock-bajo-tarjeta">
-          <h3>Stock Bajo</h3>
+          <h3>{TEXTOS.TITULO_STOCK_BAJO}</h3>
           <p className="stock-estadistica-valor">{cargando ? "..." : estadisticas.stockBajo}</p>
         </div>
         <div className="stock-estadistica-tarjeta stock-agotado-tarjeta">
-          <h3>Agotados</h3>
+          <h3>{TEXTOS.BTN_AGOTADOS}</h3>
           <p className="stock-estadistica-valor">{cargando ? "..." : estadisticas.agotados}</p>
         </div>
         <div className="stock-estadistica-tarjeta">
-          <h3>Valor del Inventario</h3>
+          <h3>{TEXTOS.TITULO_VALOR_INVENTARIO}</h3>
           <p className="stock-estadistica-valor">{cargando ? "..." : `${estadisticas.valorTotal.toFixed(2)} €`}</p>
         </div>
       </div>
@@ -111,7 +112,7 @@ export default function PaginaStock() {
             Todos
           </button>
           <button className={`stock-filtro-btn ${filtro === "bajo" ? "activo" : ""}`} onClick={() => setFiltro("bajo")}>
-            Stock Bajo
+          {TEXTOS.TITULO_STOCK_BAJO}
           </button>
           <button
             className={`stock-filtro-btn ${filtro === "agotado" ? "activo" : ""}`}
