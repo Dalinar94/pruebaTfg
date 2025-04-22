@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import PaginaBase from "@/components/pagina-base"
 import { obtenerProveedores, agregarProveedor } from "@/app/acciones"
 import "../../styles/proveedores.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function PaginaProveedores() {
   const [proveedores, setProveedores] = useState([])
@@ -125,10 +126,10 @@ export default function PaginaProveedores() {
       {/* Formulario para agregar proveedor */}
       {mostrarFormulario && (
         <div className="proveedores-formulario-contenedor">
-          <h3>Agregar Nuevo Proveedor</h3>
+          <h3>{TEXTOS.TITULO_AGREGAR_PROVEEDOR}</h3>
           <form onSubmit={manejarEnvio} className="proveedores-formulario">
             <div className="proveedores-formulario-grupo">
-              <label htmlFor="nombre">Nombre de la Empresa *</label>
+              <label htmlFor="nombre">{TEXTOS.TITULO_NOMBRE_EMPRESA}</label>
               <input
                 type="text"
                 id="nombre"
@@ -143,7 +144,7 @@ export default function PaginaProveedores() {
 
             <div className="proveedores-formulario-fila">
               <div className="proveedores-formulario-grupo">
-                <label htmlFor="contacto">Persona de Contacto</label>
+                <label htmlFor="contacto">{TEXTOS.LABEL_PERSONA_CONTACTO}</label>
                 <input
                   type="text"
                   id="contacto"
@@ -156,7 +157,7 @@ export default function PaginaProveedores() {
               </div>
 
               <div className="proveedores-formulario-grupo">
-                <label htmlFor="telefono">Teléfono</label>
+                <label htmlFor="telefono">{TEXTOS.LABEL_TELEFONO}</label>
                 <input
                   type="text"
                   id="telefono"
@@ -170,7 +171,7 @@ export default function PaginaProveedores() {
             </div>
 
             <div className="proveedores-formulario-grupo">
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">{TEXTOS.LABEL_EMAIL}</label>
               <input
                 type="email"
                 id="email"
@@ -183,7 +184,7 @@ export default function PaginaProveedores() {
             </div>
 
             <div className="proveedores-formulario-grupo">
-              <label htmlFor="direccion">Dirección</label>
+              <label htmlFor="direccion">{TEXTOS.LABEL_DIRECCION}</label>
               <input
                 type="text"
                 id="direccion"
@@ -196,7 +197,7 @@ export default function PaginaProveedores() {
             </div>
 
             <div className="proveedores-formulario-grupo">
-              <label htmlFor="productos">Productos (separados por comas)</label>
+              <label htmlFor="productos">{TEXTOS.TITULO_PRODUCTOS} (separados por comas)</label>
               <input
                 type="text"
                 id="productos"
@@ -218,7 +219,7 @@ export default function PaginaProveedores() {
                 onClick={() => setMostrarFormulario(false)}
                 disabled={enviando}
               >
-                Cancelar
+                {TEXTOS.BTN_CANCELAR}
               </button>
               <button
                 type="submit"
@@ -235,7 +236,7 @@ export default function PaginaProveedores() {
       {/* Lista de proveedores */}
       <div className="proveedores-lista">
         {cargando ? (
-          <div className="proveedores-cargando">Cargando proveedores...</div>
+          <div className="proveedores-cargando">{TEXTOS.DIV_CARGANDO_PROVEEDORES}</div>
         ) : proveedoresFiltrados.length > 0 ? (
           proveedoresFiltrados.map((proveedor) => (
             <div key={proveedor.id} className="proveedor-tarjeta">
@@ -246,21 +247,21 @@ export default function PaginaProveedores() {
               <div className="proveedor-tarjeta-contenido">
                 <div className="proveedor-tarjeta-info">
                   <p>
-                    <strong>Contacto:</strong> {proveedor.contacto}
+                    <strong>{TEXTOS.LABEL_CONTACTO}:</strong> {proveedor.contacto}
                   </p>
                   <p>
-                    <strong>Teléfono:</strong> {proveedor.telefono}
+                    <strong>{TEXTOS.LABEL_TELEFONO}:</strong> {proveedor.telefono}
                   </p>
                   <p>
-                    <strong>Email:</strong> {proveedor.email}
+                    <strong>{TEXTOS.LABEL_EMAIL}:</strong> {proveedor.email}
                   </p>
                   <p>
-                    <strong>Dirección:</strong> {proveedor.direccion}
+                    <strong>{TEXTOS.LABEL_DIRECCION}:</strong> {proveedor.direccion}
                   </p>
                 </div>
 
                 <div className="proveedor-tarjeta-productos">
-                  <h4>Productos suministrados:</h4>
+                  <h4>{TEXTOS.TITULO_PRODUCTO_SUMINISTRADO}</h4>
                   <ul>
                     {proveedor.productos.map((producto, index) => (
                       <li key={index}>{producto}</li>

@@ -109,7 +109,7 @@ export default function PaginaStock() {
             className={`stock-filtro-btn ${filtro === "todos" ? "activo" : ""}`}
             onClick={() => setFiltro("todos")}
           >
-            Todos
+            {TEXTOS.BTN_TODOS}
           </button>
           <button className={`stock-filtro-btn ${filtro === "bajo" ? "activo" : ""}`} onClick={() => setFiltro("bajo")}>
           {TEXTOS.TITULO_STOCK_BAJO}
@@ -118,7 +118,7 @@ export default function PaginaStock() {
             className={`stock-filtro-btn ${filtro === "agotado" ? "activo" : ""}`}
             onClick={() => setFiltro("agotado")}
           >
-            Agotados
+            {TEXTOS.BTN_AGOTADOS}
           </button>
         </div>
         <div className="stock-busqueda">
@@ -135,17 +135,17 @@ export default function PaginaStock() {
       {/* Tabla de Stock */}
       <div className="stock-tabla-contenedor">
         {cargando ? (
-          <div className="stock-cargando">Cargando inventario...</div>
+          <div className="stock-cargando">{TEXTOS.DIV_CARGANDO_INVENTARIO}</div>
         ) : (
           <table className="stock-tabla">
             <thead>
               <tr>
-                <th>Producto</th>
-                <th>Descripción</th>
-                <th>Precio</th>
-                <th>Cantidad</th>
-                <th>Valor</th>
-                <th>Estado</th>
+                <th>{TEXTOS.LABEL_PRODUCTO}</th>
+                <th>{TEXTOS.LABEL_DESCRIPCION}</th>
+                <th>{TEXTOS.LABEL_PRECIO}</th>
+                <th>{TEXTOS.LABEL_CANTIDAD}</th>
+                <th>{TEXTOS.LABEL_VALOR}</th>
+                <th>{TEXTOS.LABEL_ESTADO}</th>
               </tr>
             </thead>
             <tbody>

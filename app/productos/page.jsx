@@ -5,6 +5,7 @@ import PaginaBase from "@/components/pagina-base"
 import { obtenerProductos } from "@/app/acciones"
 import FormularioProducto from "@/components/formulario-producto"
 import "../../styles/productos.css"
+import {TEXTOS} from "@/lib/constantes"
 
 // Categorías simuladas para productos farmacéuticos
 const CATEGORIAS = [
@@ -127,7 +128,7 @@ export default function PaginaProductos() {
             value={categoriaSeleccionada}
             onChange={(e) => setCategoriaSeleccionada(e.target.value)}
           >
-            <option value="todas">Todas las categorías</option>
+            <option value="todas">{TEXTOS.OP_TODAS_LAS_CATEGORIAS}</option>
             {CATEGORIAS.map((cat) => (
               <option key={cat.id} value={cat.id}>
                 {cat.nombre}
@@ -156,14 +157,14 @@ export default function PaginaProductos() {
           </button>
 
           <button className="boton boton-primario" onClick={abrirFormularioNuevo}>
-            Nuevo Producto
+            {TEXTOS.BTN_NUEVO_PRODUCTO}
           </button>
         </div>
       </div>
 
       {/* Contenido principal - Productos */}
       {cargando ? (
-        <div className="productos-cargando">Cargando productos...</div>
+        <div className="productos-cargando">{TEXTOS.PRO_CARGANDO_PRODUCTOS}</div>
       ) : (
         <>
           {/* Mostrar número de resultados */}
@@ -175,12 +176,12 @@ export default function PaginaProductos() {
               <table className="productos-tabla">
                 <thead>
                   <tr>
-                    <th>Nombre</th>
-                    <th>Categoría</th>
-                    <th>Descripción</th>
-                    <th>Precio</th>
-                    <th>Stock</th>
-                    <th>Acciones</th>
+                    <th>{TEXTOS.LABEL_NOMBRE}</th>
+                    <th>{TEXTOS.LABEL_CATEGORIA}</th>
+                    <th>{TEXTOS.LABEL_DESCRIPCION}</th>
+                    <th>{TEXTOS.LABEL_PRECIO}</th>
+                    <th>{TEXTOS.LABEL_STOCK}</th>
+                    <th>{TEXTOS.LABEL_ACCION}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -197,7 +198,7 @@ export default function PaginaProductos() {
                             className="boton boton-secundario boton-sm"
                             onClick={() => abrirFormularioEditar(producto)}
                           >
-                            Editar
+                            {TEXTOS.BTN_EDITAR}
                           </button>
                         </td>
                       </tr>
@@ -205,7 +206,7 @@ export default function PaginaProductos() {
                   ) : (
                     <tr>
                       <td colSpan="6" className="productos-sin-resultados">
-                        No se encontraron productos que coincidan con los criterios de búsqueda
+                        {TEXTOS.MSG_NO_SE_ENCONTRARON_PRODUCTOS}
                       </td>
                     </tr>
                   )}
@@ -226,20 +227,20 @@ export default function PaginaProductos() {
                     <div className="producto-tarjeta-detalles">
                       <span className="producto-tarjeta-precio">{producto.precio.toFixed(2)} €</span>
                       <span className={`producto-tarjeta-stock ${producto.cantidad < 30 ? "stock-bajo" : ""}`}>
-                        Stock: {producto.cantidad}
+                        {TEXTOS.LABEL_STOCK}: {producto.cantidad}
                       </span>
                     </div>
                     <button
                       className="boton boton-secundario producto-tarjeta-btn"
                       onClick={() => abrirFormularioEditar(producto)}
                     >
-                      Editar
+                      {TEXTOS.BTN_EDITAR}
                     </button>
                   </div>
                 ))
               ) : (
                 <div className="productos-sin-resultados-grid">
-                  No se encontraron productos que coincidan con los criterios de búsqueda
+                  {TEXTOS.MSG_NO_SE_ENCONTRARON_PRODUCTOS}
                 </div>
               )}
             </div>

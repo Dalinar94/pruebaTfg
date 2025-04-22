@@ -4,6 +4,7 @@ import { useState, useEffect } from "react"
 import PaginaBase from "@/components/pagina-base"
 import { obtenerClientes, agregarCliente } from "@/app/acciones"
 import "../../styles/clientes.css"
+import {TEXTOS} from "@/lib/constantes"
 
 export default function PaginaClientes() {
   const [clientes, setClientes] = useState([])
@@ -123,10 +124,10 @@ export default function PaginaClientes() {
       {/* Formulario para agregar cliente */}
       {mostrarFormulario && (
         <div className="clientes-formulario-contenedor">
-          <h3>Agregar Nuevo Cliente</h3>
+          <h3>{TEXTOS.TITULO_AGREGAR_CLIENTE}</h3>
           <form onSubmit={manejarEnvio} className="clientes-formulario">
             <div className="clientes-formulario-grupo">
-              <label htmlFor="nombre">Nombre Completo *</label>
+              <label htmlFor="nombre">{TEXTOS.LABEL_NOMBRE_COMPLETO}</label>
               <input
                 type="text"
                 id="nombre"
@@ -141,7 +142,7 @@ export default function PaginaClientes() {
 
             <div className="clientes-formulario-fila">
               <div className="clientes-formulario-grupo">
-                <label htmlFor="telefono">Teléfono</label>
+                <label htmlFor="telefono">{TEXTOS.LABEL_TELEFONO}</label>
                 <input
                   type="text"
                   id="telefono"
@@ -154,7 +155,7 @@ export default function PaginaClientes() {
               </div>
 
               <div className="clientes-formulario-grupo">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{TEXTOS.LABEL_EMAIL}</label>
                 <input
                   type="email"
                   id="email"
@@ -168,7 +169,7 @@ export default function PaginaClientes() {
             </div>
 
             <div className="clientes-formulario-grupo">
-              <label htmlFor="direccion">Dirección</label>
+              <label htmlFor="direccion">{TEXTOS.LABEL_DIRECCION}</label>
               <input
                 type="text"
                 id="direccion"
@@ -189,7 +190,7 @@ export default function PaginaClientes() {
                 onClick={() => setMostrarFormulario(false)}
                 disabled={enviando}
               >
-                Cancelar
+                {TEXTOS.BTN_CANCELAR}
               </button>
               <button
                 type="submit"
@@ -206,39 +207,39 @@ export default function PaginaClientes() {
       {/* Lista de clientes */}
       <div className="clientes-lista">
         {cargando ? (
-          <div className="clientes-cargando">Cargando clientes...</div>
+          <div className="clientes-cargando">{TEXTOS.DIV_CARGANDO_CLIENTES}</div>
         ) : clientesFiltrados.length > 0 ? (
           clientesFiltrados.map((cliente) => (
             <div key={cliente.id} className="cliente-tarjeta">
               <div className="cliente-tarjeta-encabezado" onClick={() => verDetallesCliente(cliente)}>
                 <h3 className="cliente-tarjeta-nombre">{cliente.nombre}</h3>
-                <div className="cliente-tarjeta-fecha">Cliente desde: {formatearFecha(cliente.fechaRegistro)}</div>
+                <div className="cliente-tarjeta-fecha">{TEXTOS.DIV_CLIENTE_DESDE} {formatearFecha(cliente.fechaRegistro)}</div>
                 <button className="cliente-tarjeta-toggle">{clienteSeleccionado === cliente ? "▲" : "▼"}</button>
               </div>
 
               <div className={`cliente-tarjeta-contenido ${clienteSeleccionado === cliente ? "expandido" : ""}`}>
                 <div className="cliente-tarjeta-info">
                   <p>
-                    <strong>Teléfono:</strong> {cliente.telefono}
+                    <strong>{TEXTOS.LABEL_TELEFONO}:</strong> {cliente.telefono}
                   </p>
                   <p>
-                    <strong>Email:</strong> {cliente.email}
+                    <strong>{TEXTOS.LABEL_EMAIL}:</strong> {cliente.email}
                   </p>
                   <p>
-                    <strong>Dirección:</strong> {cliente.direccion}
+                    <strong>{TEXTOS.LABEL_DIRECCION}:</strong> {cliente.direccion}
                   </p>
                 </div>
 
                 <div className="cliente-tarjeta-compras">
-                  <h4>Historial de Compras:</h4>
+                  <h4>{TEXTOS.TITULO_HISTORIAL_COMPRAS}</h4>
                   {cliente.compras.length > 0 ? (
                     <table className="cliente-compras-tabla">
                       <thead>
                         <tr>
-                          <th>Fecha</th>
-                          <th>Producto</th>
-                          <th>Cantidad</th>
-                          <th>Total</th>
+                          <th>{TEXTOS.LABEL_FECHA}</th>
+                          <th>{TEXTOS.LABEL_PRODUCTO}</th>
+                          <th>{TEXTOS.LABEL_CANTIDAD}</th>
+                          <th>{TEXTOS.LABEL_TOTAL}</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -254,7 +255,7 @@ export default function PaginaClientes() {
                       <tfoot>
                         <tr>
                           <td colSpan="3" className="cliente-compras-total-label">
-                            Total Gastado:
+                            {TEXTOS.LABEL_TOTAL_GASTADO}
                           </td>
                           <td className="cliente-compras-total-valor">
                             {cliente.compras.reduce((sum, compra) => sum + compra.total, 0).toFixed(2)} €
@@ -263,7 +264,7 @@ export default function PaginaClientes() {
                       </tfoot>
                     </table>
                   ) : (
-                    <p className="cliente-sin-compras">No hay compras registradas</p>
+                    <p className="cliente-sin-compras">{TEXTOS.MSG_NO_HAY_COMPRAS_REGISTRADAS}</p>
                   )}
                 </div>
               </div>
