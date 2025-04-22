@@ -1,4 +1,4 @@
-"use server"
+"use client"
 
 // Datos simulados en memoria
 const usuarios = [{ id: 1, nombre: "Usuario", apellido: "Predeterminado", usuario: "user", contrasena: "1234" }]
