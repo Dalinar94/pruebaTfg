@@ -20,7 +20,7 @@ connection.connect((err) => {
 });
 
 // Realiza una consulta a la base de datos
-connection.query('SELECT * FROM productos', (err, results) => {
+connection.query('SELECT * FROM proveedores', (err, results) => {
   if (err) {
     console.error('Error al realizar la consulta: ' + err.stack);
     return;
