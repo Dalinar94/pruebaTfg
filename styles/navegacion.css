@@ -76,7 +76,9 @@
 .navegacion-boton:hover {
   color: var(--color-primario);
 }
-
+.logo{
+  border-radius: 10px;
+}
 /* Responsive */
 @media (max-width: 768px) {
   .navegacion-menu {

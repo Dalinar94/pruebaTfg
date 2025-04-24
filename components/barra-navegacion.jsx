@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import "../styles/navegacion.css"
 import {TEXTOS} from "@/lib/constantes"
 
+
 export default function BarraNavegacion({ onCerrarSesion }) {
   const pathname = usePathname()
 
@@ -18,6 +19,11 @@ export default function BarraNavegacion({ onCerrarSesion }) {
     <header className="navegacion">
       <div className="contenedor navegacion-contenedor">
         <div className="navegacion-logo">
+          <Image className="logo" src="/img/logo.png" 
+          alt="Logo" 
+          width={50} 
+          height={50} 
+          />
           <span className="navegacion-titulo">{TEXTOS.NOMBRE_EMPRESA}</span>
         </div>
 
@@ -34,9 +40,6 @@ export default function BarraNavegacion({ onCerrarSesion }) {
           </Link>
           <Link href="/proveedores" className={`navegacion-enlace ${esEnlaceActivo("/proveedores")}`}>
             {TEXTOS.TITULO_PROVEEDORES}
-          </Link>
-          <Link href="/clientes" className={`navegacion-enlace ${esEnlaceActivo("/clientes")}`}>
-            {TEXTOS.TITULO_CLIENTES}
           </Link>
           <Link href="/soporte" className={`navegacion-enlace ${esEnlaceActivo("/soporte")}`}>
             {TEXTOS.TITULO_SOPORTE}
